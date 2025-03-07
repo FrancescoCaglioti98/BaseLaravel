@@ -8,16 +8,6 @@ const model = ref([
         label: 'Home',
         items: [
             { label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' },
-            {
-                label: 'Furgoni',
-                icon: 'pi pi-fw pi-truck',
-                items: [
-                    { label: 'Lista', icon: 'pi pi-fw pi-bars', to: '/truck/index' },
-                    { label: 'Nuovo', icon: 'pi pi-fw pi-plus', to: '/truck/new' },
-                ]
-            },
-            { label: 'Calcolo', icon: 'pi pi-fw pi-calculator', to: '/load'}
-
         ]
     }
 ]);

@@ -28,7 +28,7 @@ import {
 } from "primevue";
 import {Form} from "@primevue/forms";
 
-import '@/assets/styles.scss';
+import './assets/styles.scss';
 
 const app = createApp(App);
 

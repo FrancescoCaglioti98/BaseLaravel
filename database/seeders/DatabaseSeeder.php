@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Truck;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Truck::factory(10)->create();
+        User::factory(10)->create();
     }
 }
