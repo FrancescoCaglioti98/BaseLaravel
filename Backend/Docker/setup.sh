@@ -15,9 +15,6 @@ docker-compose run --rm artisan key:generate
 echo "🔧 Eseguo migrazioni e seed del database..."
 docker-compose run --rm artisan migrate --force
 
-echo "🎨 Installazione dei pacchetti NPM e build di Vue..."
-docker-compose run --rm node
-
 echo "🔗 Creazione del link a storage..."
 docker-compose run --rm artisan storage:link
 

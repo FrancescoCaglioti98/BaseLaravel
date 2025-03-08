@@ -46,7 +46,6 @@ services:
         networks:
             - app_network
 
-
     artisan:
         build:
             context: .
@@ -68,18 +67,6 @@ services:
         container_name: composer_runner
         working_dir: /var/www
         entrypoint: [ "composer", "install", "--no-dev", "--optimize-autoloader" ]
-        volumes:
-            - .:/var/www
-        depends_on:
-            - app
-        networks:
-            - app_network
-
-    node:
-        image: node:18
-        container_name: node_runner
-        working_dir: /var/www
-        entrypoint: [ "/bin/sh", "-c", "npm install && npm run build" ]
         volumes:
             - .:/var/www
         depends_on:
