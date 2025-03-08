@@ -1,6 +1,6 @@
 {
-    "name": "sakai-vue",
-    "version": "4.3.0",
+    "name": "base-project",
+    "version": "0.1.0",
     "scripts": {
         "dev": "vite",
         "build": "vite build",
