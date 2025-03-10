@@ -1,7 +1,6 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
-import axios from 'axios';
 import {createPinia} from "pinia";
 
 import PrimeVue from 'primevue/config';
@@ -10,12 +9,6 @@ import ToastService from 'primevue/toastservice';
 import Lara from "@primeuix/themes/lara";
 
 import '@/assets/styles.scss';
-
-axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
-const token = localStorage.getItem('token');
-if (token) {
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-}
 
 const pinia = createPinia();
 const app = createApp(App);

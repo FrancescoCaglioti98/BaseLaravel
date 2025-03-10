@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import axios from 'axios';
+import internalApiClient from "@/api/internalApiClient";
 
 export const useAuthStore = defineStore('auth', {
     state: () => ({
@@ -14,10 +14,10 @@ export const useAuthStore = defineStore('auth', {
     actions: {
         async login(credentials) {
             try {
-                const response = await axios.post('/api/login', credentials);
+                const response = await internalApiClient().post('/api/login', credentials);
                 this.token = response.data.token;
                 localStorage.setItem('token', this.token);
-                axios.defaults.headers.common['Authorization'] = `Bearer ${this.token}`;
+                internalApiClient.defaults.headers.common['Authorization'] = `Bearer ${this.token}`;
             } catch (error) {
                 console.error("Errore di login", error);
             }
@@ -26,12 +26,12 @@ export const useAuthStore = defineStore('auth', {
         logout() {
             this.token = null;
             localStorage.removeItem('token');
-            delete axios.defaults.headers.common['Authorization'];
+            delete internalApiClient.defaults.headers.common['Authorization'];
         },
 
         async fetchUser() {
             try {
-                const response = await axios.get('/api/user');
+                const response = await internalApiClient.get('/api/user');
                 this.user = response.data;
             } catch (error) {
                 this.logout(); // Se il token è scaduto, fai logout
